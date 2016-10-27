@@ -29,11 +29,13 @@
     "hooks": [
       {
         "type": "before-prepare",
-        "script": "bin/patch-npm.js"
+        "script": "bin/patch-npm.js",
+        "inject": true
       },
       {
         "type": "after-prepare",
-        "script": "bin/patch-pods.js"
+        "script": "bin/patch-pods.js",
+        "inject": true
       }
     ]
   }

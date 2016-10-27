@@ -2,26 +2,15 @@
 
 var fs = require("fs");
 
-function rename(from, to) {
-    try {
-        if (fs.existsSync(from)) {
-            console.log("File " + from + " exists, renaming...");
-            fs.renameSync(from, to);
-            console.log("Renamed!")
-        } else {
-            console.log("File " + from + " does not exists!");
-        }
-    } catch(e) {
-        console.log("Error: " + e);
-    }
-}
-
 function patch(file, from, to) {
     try {
         if (fs.existsSync(file)) {
             console.log("File " + file + " exists, patching...");
             var src = fs.readFileSync(file).toString();
             src = src.replace(from, to);
+            console.log("Delete it.");
+            fs.unlink(file);
+            console.log("Writing its patched version...");
             fs.writeFileSync(file, src);
             console.log("Patched!");
         } else {

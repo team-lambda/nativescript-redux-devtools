@@ -35,8 +35,12 @@ function patch(file, from, to) {
 module.exports = function() {
     // linked-list: _modue -> module
     rename("./node_modules/remote-redux-devtools/node_modules/socketcluster-client/node_modules/linked-list/_source", "./node_modules/remote-redux-devtools/node_modules/socketcluster-client/node_modules/linked-list/source");
+    rename("./node_modules/linked-list/_source", "./node_modules/linked-list/source");
 
     patch("./node_modules/remote-redux-devtools/node_modules/socketcluster-client/node_modules/linked-list/index.js",
+        "require('./_source/linked-list.js')",
+        "require('./source/linked-list.js')");
+    patch("./node_modules/linked-list/index.js",
         "require('./_source/linked-list.js')",
         "require('./source/linked-list.js')");
 
@@ -44,4 +48,15 @@ module.exports = function() {
     patch("./node_modules/remote-redux-devtools/node_modules/socketcluster-client/lib/sctransport.js",
         "require('ws')",
         "global.WebSocket");
+    patch("./node_modules/socketcluster-client/lib/sctransport.js",
+        "require('ws')",
+        "global.WebSocket");
+
+    // NOTE: Hope pod install passed
+    // platforms/ios/Pods/PocketSocket/PocketSocket/PSPocketSocketDriver.m
+    // if(_pmdEnabled && !frame->control && (frame->rsv1 || (_initialFrame && _initialFrame->rsv1))) {
+    patch("./platforms/ios/Pods/PocketSocket/PocketSocket/PSWebSocketDriver.m",
+        "if(_pmdEnabled && !frame->control && (frame->rsv1 || _initialFrame->rsv1)) {",
+        "if(_pmdEnabled && !frame->control && (frame->rsv1 || (_initialFrame && _initialFrame->rsv1))) {");
+
 }

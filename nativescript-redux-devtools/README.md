@@ -1,4 +1,4 @@
-# Redux Devtools for NativeScript
+Redux Devtools for NativeScript
 
 Setting up in existing {N} app:
 ```

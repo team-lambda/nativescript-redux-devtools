@@ -6,6 +6,21 @@ Setting up in existing {N} app:
 npm i nativescript-redux-devtools
 ```
 
+Add the devTools enchanser to your store:
+```
+var devTools = require('remote-redux-devtools').default;
+
+var store = createStore(counter, devTools({
+  hostname,
+  port: 8000,
+  realtime: true
+}))
+```
+
+The hostname can be `localhost` for iOS emulators or for Android 10.0.2.2 (10.0.3.2 for genymotion).
+
+For real devices connected over USB you can use `adb reverse` for Android 21+, or your computer's IP over WiFi. 
+
 ### Server setups
 For a test drive you can install the *remote-server*:
 ```

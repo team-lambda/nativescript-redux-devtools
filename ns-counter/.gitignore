@@ -1,0 +1,6 @@
+platforms
+lib
+node_modules
+hooks
+app/*.js
+*.js.map

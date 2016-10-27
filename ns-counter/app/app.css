@@ -1,0 +1,17 @@
+﻿button {
+  font-size: 60;
+  margin: 20;
+  background-color: #01A982;
+  vertical-align: top;
+  color: white;
+  width: 100;
+  height: 100;
+}
+
+label {
+  font-size: 150;
+  font-weight: bold;
+  color: #284848;
+  horizontal-align: center;
+  margin: 20;
+}

@@ -1,0 +1,8 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" actionBarHidden="true">
+  <GridLayout columns="* *" rows="auto *">
+    <Label colSpan="2" text="0" id="counter"/>
+
+    <Button row="1" col="0" text="-" tap="decrement"></Button>
+    <Button row="1" col="1" text="+" tap="increment" ></Button>
+  </GridLayout>
+</Page>

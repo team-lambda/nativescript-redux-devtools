@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "prepublish": "cd nativescript-redux-devtools && npm link && cd ../ns-counter && npm link nativescript-redux-devtools"
+    }
+}

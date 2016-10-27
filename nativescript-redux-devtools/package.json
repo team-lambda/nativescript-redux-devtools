@@ -1,0 +1,39 @@
+{
+  "name": "nativescript-redux-devtools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node postinstall.js",
+    "preuninstall": "node preuninstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-lambda/nativescript-redux-devtools.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/team-lambda/nativescript-redux-devtools/issues"
+  },
+  "homepage": "https://github.com/team-lambda/nativescript-redux-devtools#readme",
+  "dependencies": {
+    "nativescript-websockets": "^1.3.0",
+    "redux": "^3.6.0"
+  },
+  "peerDependencies": {
+    "remote-redux-devtools": "^0.5.1"
+  },
+  "nativescript": {
+    "hooks": [
+      {
+        "type": "before-prepare",
+        "script": "bin/patch-npm.js"
+      },
+      {
+        "type": "after-prepare",
+        "script": "bin/patch-pods.js"
+      }
+    ]
+  }
+}
